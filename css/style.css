@@ -1,0 +1,48 @@
+#container {
+	width: 60%;
+	text-align: center;
+	margin: 0 auto;
+	padding-top: 10%;
+}
+
+#btn-container {
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	margin-top: 10%;
+}
+
+#question {
+	font-size: 30px;
+	font-family: 'Helvetica';
+	font-weight: 200;
+}
+
+.button {
+	width: 30%;
+	margin-right: 5%;
+	margin-left: 5%;
+	height: 30%;
+	border: none;
+	background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 3% 3%;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    margin: 4% 4%;
+    cursor: pointer;
+}
+span {
+	font-family: 'Helvetica';
+	font-size: 16px;
+	font-weight: 200;
+	margin-bottom: 5%;
+}
+
+
+#next {
+	display: none;
+}

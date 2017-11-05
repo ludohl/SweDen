@@ -1,0 +1,321 @@
+* {
+  font-family: 'Roboto', sans-serif;
+  margin:0;  
+  padding:0;  
+}
+
+body {
+  width: 100%; 
+  text-align: center;
+  background-color: #fcfcfc;
+}
+
+.header {
+  background-color: white;
+  height: 100vh;
+  background-image: url('../img/background.jpg');
+  background-size: cover;
+  background-position: center;
+  transition: background-color, 0.5s, linear; 
+}
+
+.header .btn {
+  position: absolute;
+  bottom: 10%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 50px;
+  font-size: 24px;
+  font-weight: 400;
+  border: 1px solid blue;
+  background-color: rgb(80, 148, 217);
+  color: white;
+  border-radius: 20px
+}
+
+.header h1 {
+  width: 100%;
+  margin: auto;
+  position: relative;
+  top: 20%;
+  transform: translateY(-20%);
+  font-weight: 700;
+  font-size: 80px;
+  text-transform: uppercase;
+  line-height: 75px;
+  letter-spacing: 3px;
+  color: #000;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+}
+
+.main-bg {
+  background-image: url("../img/sweden.png");
+  /*background-image: url("https://eastsidejenaost.files.wordpress.com/2016/02/a_ausrufezeichen24.gif?w=1400&h=9999");*/
+  background-size: cover;
+  background-position: center; 
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  background-color: rgb(59, 247, 16);
+}
+
+.main {
+  padding-top: 8%;
+  min-height: 80%;
+  width: 60%;
+  background-color: rgba(0,0,0,0.9);
+  align-self: center;
+  border-radius: 50px;
+}
+
+.guess {
+  width: 70%;
+  margin: auto;
+  clear: both;
+  color: purple;
+}
+
+h3 {
+  font-weight: 400;
+  font-size: 40px;
+  color: rgb(82, 250, 76);
+}
+
+h4 {
+  font-weight: 400;
+  font-size: 20px;
+  color: rgb(250, 76, 227);
+  padding-bottom: 30px;
+}
+
+h5 {
+  font-weight: 400;
+  font-size: 16px;
+}
+
+p {
+  color: rgb(16, 247, 242);
+}
+
+#warning {
+  color: #cd3700;
+}
+
+#finalMsg {
+  padding-top: 30px;
+}
+
+.btn {
+  text-transform: uppercase;
+  outline: none;
+  background: #fff;
+  border: none;
+  font-size: 14px;
+  height: 35px;
+  width: 120px;
+  margin-left: 20px;
+  box-shadow: 0 3px 5px rgba(9,9,9,0.3);
+}
+
+.buttons {
+  padding: 30px 0px;
+  height: 50px;
+}
+
+section input[type="text"]:active {
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+  border-bottom: 2px solid #1abc9c;
+}
+
+#guess-field {
+  padding-left: 5px;
+  outline: none;
+  background: #ccc;
+  border: none;
+  font-size: 14px;
+  height: 35px;
+  width: 195px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3),
+    0 0 0 100px #fff inset;
+}
+
+.message img {
+  max-width: 100%;
+}
+
+.success {
+  background-color: green;
+  color: white;
+}
+
+.fail {
+  background-color: red;
+  color: white;
+}
+
+#next {
+  display: none;
+  margin: 2.5% 0;
+}
+
+
+#neon {
+  text-align:center;
+  border:5px solid #1086e8;
+  width:200px;
+  margin: 5% auto;
+  animation: border-flicker 2s linear infinite;
+}
+
+#neon h3 {
+  color:#FF00E6;
+  font-family: 'Raleway', sans-serif;
+  font-size:64px;
+  letter-spacing:10px;
+  animation: text-flicker 3s linear infinite;
+}
+
+
+
+
+#offset {
+  animation: letter-flicker 2s linear infinite;
+}
+
+@keyframes text-flicker {
+  0% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  2% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  8% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  9% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  12% {
+    opacity:0.1;
+    text-shadow: 0px 0px rgba(242, 22, 22, 1);
+  }
+  20% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  25% {
+    opacity:0.3;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  30% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  70% {
+    opacity:0.7;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  72% {
+    opacity:0.2;
+    text-shadow:0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  
+  77% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+  100% {
+    opacity:.9;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1)
+  }
+}
+
+@keyframes border-flicker {
+  0% {
+    opacity:0.1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  2% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  4% {
+    opacity:0.1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  
+  8% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  70% {
+    opacity:0.7;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+  100% {
+    opacity:1;
+    -webkit-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+-moz-box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+box-shadow: 0px 0px 78px 4px rgba(16,134,232,0.73);
+  }
+}
+
+@keyframes letter-flicker {
+  0% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  2% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  4% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  
+  19% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  21% {
+    opacity:0.1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  23% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  
+  80% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  83% {
+    opacity:0.4;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+  87% {
+    opacity:1;
+    text-shadow: 0px 0px 29px rgba(242, 22, 22, 1);
+  }
+}
