@@ -5,52 +5,72 @@ var gifs = [
 	{
 	url: 'img/moose.gif',
 	alt: 'Crying moose',
-	text: 'No viking blood in your veins!'
+	text: 'Du skal skamme dig!'
 	},
 	{
-	url: 'img/moose.gif',
+	url: 'img/moose2.gif',
 	alt: 'alt',
-	text: 'No viking blood in your veins!'
+	text: 'Seriously? A moose knows more than you!'
 	},
 	{
-	url: 'img/moose.gif',
+	url: 'img/kongen.gif',
 	alt: 'alt',
-	text: 'No viking blood in your veins!'
+	text: 'Not half bad!'
+	},
+	{
+	url: 'img/swedengif.gif',
+	alt: 'Winner winner chicken dinner',
+	text: 'Now we are talking!'
 	},
 	{
 	url: 'img/winner.gif',
 	alt: 'Winner winner chicken dinner',
-	text: 'No viking blood in your veins!'
-	},
-	{
-	url: 'img/winner.gif',
-	alt: 'Winner winner chicken dinner',
-	text: 'Somebody did their homework! Well played!'
+	text: 'Somebody know their Scandinavia! Well played!'
 	}
 ]
 
 
 var questions = [
 {
-	question: "Question 1?",
+	question: "This country has a big community that goes to their border and digs away parts of their country.",
+	answer: 'sweden',
+},
+{
+	question: "This country has a tradition where they throw cinnamon at the people who are single at the end of the year.",
+	answer: 'denmark'
+},
+{
+	question: "This country celebrates their religious holidays by brewing extra strong beer and dressing up in funny hats.",
+	answer: 'denmark'
+},
+{
+	question: "This country is owed €300m by North Korea for 1,000 stolen cars and send them reminders every 6 months.",
 	answer: 'sweden'
 },
 {
-	question: "Question 2",
+	question: "This country was the first country to legalize porn in 1969.",
 	answer: 'denmark'
-},
+}, 
 {
-	question: "Question 3",
+	question: "This country has radioactive wild boars in the forest",
 	answer: 'sweden'
 },
 {
-	question: "Question 4",
+	question: "Many cinemas in this country show subtitles on domestic films, because of difficulties understanding different dialects.",
 	answer: 'denmark'
 },
 {
-	question: "Question 5",
+	question: "This country has more pigs than people.",
 	answer: 'denmark'
 },
+{
+	question: 'Homosexuality was still classified as an illness in this country in 1979. Citizens protested by calling in sick to work, claiming they "felt gay"',
+	answer: 'sweden'
+},
+{
+	question: 'In 2011, a man was arrested in this country for splitting an atom in his kitchen.',
+	answer: 'sweden'
+}
 ];
 
 function remaining() {
@@ -67,7 +87,6 @@ function checkScore() {
 			}
 		}
 
-		console.log(gifs[0].url);
 		score = (scoreCount/questions.length)*100;
 		$('#ans-msg').text('You scored '+score+ '% correct!');
 		$('.guess h3').text('YOUR SCORE:');
@@ -76,28 +95,36 @@ function checkScore() {
 		$('.buttons').hide();
 		$('#numGuesses').closest('h4').hide();	
 
-		if (score <= 20) {
-			$('#ans-msg').text(gifs[0].text);
-			$('.message').append('<img src="'+gifs[0].url+'" alt="'+gifs[0].alt+'">')
-		}		
-		else if (score > 20 && score < 41 ) {
-			$('#ans-msg').text(gifs[1].text);
-			$('.message').append('<img src="'+gifs[1].url+'" alt="'+gifs[1].alt+'">');
-		}
-		else if (score > 40 && score < 61 ) {
-			$('#ans-msg').text(gifs[2].text);
-			$('.message').append('<img src="'+gifs[2].url+'" alt="'+gifs[2].alt+'">');
-		}
-		else if (score > 60 && score < 81 ) {
-			$('#ans-msg').text(gifs[3].text);
-			$('.message').append('<img src="'+gifs[3].url+'" alt="'+gifs[3].alt+'">');
-
-		}
-		else if (score > 80 && score < 101 ) {
-			$('#ans-msg').text(gifs[4].text);
-			$('.message').append('<img src="'+gifs[4].url+'" alt="'+gifs[4].alt+'">');
-		}
+		console.log(score);
+		switch (true)
+		{
+			case (score <= 20):
+				returnScore(0);
+				break;
+			case (score > 20 && score < 41 ):
+				returnScore(1);
+				break;
+			case (score > 40 && score < 61 ):
+				returnScore(2);
+				break;
+			case (score > 60 && score < 81 ):
+				returnScore(3);
+				break;
+			case (score > 80 && score < 101 ):
+				returnScore(4);
+				break;
+			default: 
+				returnScore(0);
+				break;
+		}	
 	} 
+
+}
+
+function returnScore(i) {
+	$('#ans-msg').text(gifs[i].text);
+	$('.message').append('<img src="'+gifs[i].url+'" alt="'+gifs[i].alt+'">');
+	$('.message').after('<button id="play-again" class="btn">Play Again</button>');
 
 }
 
@@ -116,13 +143,13 @@ $(document).ready(function() {
 
 	$('.buttons .ans').on('click', function() {
 		var ans = $(this).text().toLowerCase();
-		console.log(ans)
+		$('.buttons .ans').addClass('disabled');
 		if (ans === questions[counter].answer) {
-			$('#ans-msg').text('Rätt svar! Välfärd! Kungen! Älg!');
-			$(this).addClass('success'); 
+			$('#ans-msg').text("That's right! ");
+			$('#ans-msg').addClass('success'); 
 		} else {
-			$('#ans-msg').text('FEL FO HELVEDE MADS!');
-			$(this).addClass('fail'); 
+			$('#ans-msg').text('WRONG! FO HELVEDE!');
+			$("#ans-msg").addClass('fail'); 
 		}
 		userAns.push(ans);
 		$('#ans-msg').show();
@@ -137,16 +164,22 @@ $(document).ready(function() {
 
 	$('#next').on('click', function() {
 		$(this).hide();
+		$('.buttons .ans').removeClass('disabled');
 		if (counter < questions.length) {
 			$('.guess h3').text(questions[counter].question);
 			$('.buttons .ans').prop('disabled',false);
 			$('#ans-msg').hide();
-			$('.buttons .ans').removeClass('success fail');
+			$('#ans-msg').removeClass('success fail');
 			remaining();
 		} else {
+			$('#ans-msg').removeClass('success fail');					
 			$('.main-bg').css('background-image','url("https://giant.gfycat.com/BelatedMediocreEasternglasslizard.gif")');
 			checkScore();
 		}
+	});
+
+	$('html, body').on('click','#play-again', function(){
+		location.reload();
 	});
 
 
